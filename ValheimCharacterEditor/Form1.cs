@@ -17,7 +17,7 @@ namespace ValheimCharacterEditor
             if (Util.isGameRunning())
             {
                 MessageBox.Show("Please close Valheim before editing your character.", "ERROR", MessageBoxButtons.OK);
-                Application.Exit();
+               // Application.Exit();
             }
 
             // Populate forms with data
@@ -94,6 +94,11 @@ namespace ValheimCharacterEditor
                 textBox_HairColor.Enabled = true;
                 textBox_SkinTone.Enabled = true;
                 button_Apply.Enabled = true;
+<<<<<<< Updated upstream
+=======
+                button_Skills.Enabled = true;
+                button_Inventory .Enabled = true;
+>>>>>>> Stashed changes
             }
             catch
             {
@@ -113,6 +118,11 @@ namespace ValheimCharacterEditor
             textBox_HairColor.Enabled = false;
             textBox_SkinTone.Enabled = false;
             button_Apply.Enabled = false;
+<<<<<<< Updated upstream
+=======
+            button_Skills.Enabled = false;
+            button_Inventory.Enabled = false;
+>>>>>>> Stashed changes
 
             // Make a first run again to avoid fully executing "comboBox_Characters_SelectedIndexChanged"
             Customization.FirstRun = true;
@@ -220,5 +230,23 @@ namespace ValheimCharacterEditor
             if (colorDialog_HairColor.ShowDialog() == DialogResult.OK)
                 textBox_HairColor.BackColor = colorDialog_HairColor.Color;
         }
+<<<<<<< Updated upstream
+=======
+          
+
+        private void button_Skills_Click(object sender, EventArgs e)
+        {
+            Form_Skills skills_form = new Form_Skills();
+            skills_form.ShowDialog();
+            
+
+        }
+
+        private void button_Inventory_Click(object sender, EventArgs e)
+        {
+            Form_Inventory Inventory_form = new Form_Inventory();
+            Inventory_form.ShowDialog();
+        }
+>>>>>>> Stashed changes
     }
 }

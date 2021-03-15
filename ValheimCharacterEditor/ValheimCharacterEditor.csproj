@@ -82,6 +82,10 @@
     <ApplicationIcon>valheim.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,6 +100,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteAccess.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Controls\Skill_control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Skill_control.Designer.cs">
+      <DependentUpon>Skill_control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Inventory.Designer.cs">
+      <DependentUpon>Form_Inventory.cs</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="Parser.cs" />
     <Compile Include="ValheimEngine.cs" />
     <Compile Include="Customization.cs" />
@@ -112,6 +131,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Inventory.resx">
+      <DependentUpon>Form_Inventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -121,6 +143,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <EmbeddedResource Include="Form_Skills.resx">
+      <DependentUpon>Form_Skills.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+>>>>>>> Stashed changes
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
