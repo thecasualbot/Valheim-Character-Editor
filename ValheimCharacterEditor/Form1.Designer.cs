@@ -57,6 +57,7 @@ namespace ValheimCharacterEditor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.colorDialog_HairColor = new System.Windows.Forms.ColorDialog();
             this.button_Skills = new System.Windows.Forms.Button();
+            this.button_worlds = new System.Windows.Forms.Button();
             this.groupBox_Customization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -357,12 +358,28 @@ namespace ValheimCharacterEditor
             this.button_Skills.UseVisualStyleBackColor = false;
             this.button_Skills.Click += new System.EventHandler(this.button_Skills_Click);
             // 
+            // button_worlds
+            // 
+            this.button_worlds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_worlds.Enabled = false;
+            this.button_worlds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_worlds.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_worlds.ForeColor = System.Drawing.Color.White;
+            this.button_worlds.Location = new System.Drawing.Point(98, 306);
+            this.button_worlds.Name = "button_worlds";
+            this.button_worlds.Size = new System.Drawing.Size(80, 28);
+            this.button_worlds.TabIndex = 12;
+            this.button_worlds.Text = "Worlds";
+            this.button_worlds.UseVisualStyleBackColor = false;
+            this.button_worlds.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(583, 346);
+            this.Controls.Add(this.button_worlds);
             this.Controls.Add(this.button_Skills);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_Minimize);
@@ -412,11 +429,12 @@ namespace ValheimCharacterEditor
         private System.Windows.Forms.TextBox textBox_HairColor;
         private System.Windows.Forms.Button button_SkinTone;
         private System.Windows.Forms.TextBox textBox_SkinTone;
-        private System.Windows.Forms.ComboBox comboBox_Characters;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ColorDialog colorDialog_HairColor;
         private System.Windows.Forms.Button button_Skills;
+        private System.Windows.Forms.Button button_worlds;
+        private System.Windows.Forms.ComboBox comboBox_Characters;
     }
 }
 

@@ -151,6 +151,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Skills";
             this.Text = "Skills";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Skills_FormClosing);
             this.Load += new System.EventHandler(this.Skills_Load);
             this.groupBox_fast_set.ResumeLayout(false);
             this.ResumeLayout(false);

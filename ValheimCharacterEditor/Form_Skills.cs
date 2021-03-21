@@ -77,33 +77,10 @@ namespace ValheimCharacterEditor
 
         private void button_apply_Click(object sender, EventArgs e)
         {
-            try
+
+            if (Util.SaveCharacter())
             {
-                
-                // Make a backup of the selected character file
-                if (!Util.BackupFile(Customization.SelectedCharacter.File))
-                {
-                    MessageBox.Show("Error while backing up character file.", "ERROR", MessageBoxButtons.OK);
-                    return;
-                }
-                               
-                // Write customization, if fail restore backup
-                if (Customization.WriteCustomization())
-                {
-                    MessageBox.Show("Customization applied.", "INFO", MessageBoxButtons.OK);
-                    _Populate();
-                }
-                else
-                {
-                    MessageBox.Show("There was an error while applying the new customization. Last backup will be restored.", "ERROR", MessageBoxButtons.OK);
-                    Util.RestoreFile();
-                    return;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("There was an error while applying the new customization. Last backup will be restored.", "FATAL ERROR", MessageBoxButtons.OK);
-                Util.RestoreFile();
+                _Populate();
             }
         }
 
@@ -164,12 +141,20 @@ namespace ValheimCharacterEditor
 
         private void button_exit_Click(object sender, EventArgs e)
         {
+            
             Close();
         }
 
         private void button_Minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void Form_Skills_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //clear out changes before form exit to avoid save on a diffrent form 
+            Util.ReloadCharaters();
+
         }
     }
 }

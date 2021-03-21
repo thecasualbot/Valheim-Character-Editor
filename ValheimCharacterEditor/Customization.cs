@@ -11,6 +11,7 @@ namespace ValheimCharacterEditor
         static public bool FirstRun = true;
         static public Character[] FoundCharacters;
         static public Character SelectedCharacter = new Character();
+        static public string SelectedCharacterkey; 
 
         public class Character
         {
@@ -24,6 +25,7 @@ namespace ValheimCharacterEditor
             {
                 if (name == character.Data.Name)
                 {
+                    SelectedCharacter.Data = new ValheimEngine.Character();
                     SelectedCharacter.Data = character.Data;
                     SelectedCharacter.File = character.File;
                     return;

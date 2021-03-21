@@ -74,6 +74,7 @@ namespace ValheimCharacterEditor
             try
             {
                 // Initialize
+                Customization.SelectedCharacterkey = comboBox_Characters.SelectedItem.ToString();
                 Customization.Initialize(comboBox_Characters.SelectedItem.ToString());
 
                 // Put appearance in gui
@@ -95,6 +96,7 @@ namespace ValheimCharacterEditor
                 textBox_SkinTone.Enabled = true;
                 button_Apply.Enabled = true;
                 button_Skills.Enabled = true;
+                button_worlds.Enabled = true;
             }
             catch
             {
@@ -115,6 +117,7 @@ namespace ValheimCharacterEditor
             textBox_SkinTone.Enabled = false;
             button_Apply.Enabled = false;
             button_Skills.Enabled = false;
+            button_worlds.Enabled = false;
 
             // Make a first run again to avoid fully executing "comboBox_Characters_SelectedIndexChanged"
             Customization.FirstRun = true;
@@ -230,6 +233,12 @@ namespace ValheimCharacterEditor
             skills_form.ShowDialog();
             
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form_Worlds Worlds_form = new Form_Worlds();
+            Worlds_form.ShowDialog();
         }
     }
 }

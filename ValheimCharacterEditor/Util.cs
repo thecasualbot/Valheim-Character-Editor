@@ -81,6 +81,20 @@ namespace ValheimCharacterEditor
             return names;
         }
 
+        static public long[] GetCharacterWorlds(Customization.Character selectedCharacter)
+        {
+            long[] worldkeys = new long[selectedCharacter.Data.WorldsData.Count];
+            selectedCharacter.Data.WorldsData.Keys.CopyTo(worldkeys, 0);
+            return worldkeys;
+        }
+
+        static public void ReloadCharaters()
+        {
+            Customization.SelectedCharacter = new Customization.Character();
+            Customization.GetCharacters();
+            Customization.Initialize(Customization.SelectedCharacterkey);
+        }
+
         static public ValheimEngine.Vector3 ColorToVec3(System.Drawing.Color Color)
         {
             return new ValheimEngine.Vector3
@@ -95,5 +109,41 @@ namespace ValheimCharacterEditor
         {
             return System.Drawing.Color.FromArgb(255, (int)(color.X*255), (int)(color.Y * 255), (int)(color.Z * 255));
         }
+
+        static public bool SaveCharacter()
+        {
+            try
+            {
+
+                // Make a backup of the selected character file
+                if (!BackupFile(Customization.SelectedCharacter.File))
+                {
+                    MessageBox.Show("Error while backing up character file.", "ERROR", MessageBoxButtons.OK);
+                    return false;
+                    
+                }
+
+                // Write customization, if fail restore backup
+                if (Customization.WriteCustomization())
+                {
+                    MessageBox.Show("Customization applied.", "INFO", MessageBoxButtons.OK);
+                    return true;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("There was an error while applying the new customization. Last backup will be restored.", "ERROR", MessageBoxButtons.OK);
+                    RestoreFile();
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("There was an error while applying the new customization. Last backup will be restored.", "FATAL ERROR", MessageBoxButtons.OK);
+                RestoreFile();
+                return false;
+            }
+        }
+
     }
 }
